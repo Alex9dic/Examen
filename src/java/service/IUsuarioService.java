@@ -5,10 +5,21 @@
  */
 package service;
 
+import entity.Usuario;
+import java.util.List;
+
 /**
  *
  * @author labtw04
  */
 public interface IUsuarioService {
-    
+    public void crearRegistro(Usuario usuario);
+
+    public void actualizarRegistro(Usuario usuario);
+
+    public List<Usuario> obtenerRegistros();
+
+    public Usuario obtenerRegistro(int codigo);
+
+    public void eliminarRegistro(int codigo);
 }

@@ -5,12 +5,15 @@
  */
 package controller;
 
+import entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import service.IUsuarioService;
+import service.UsuarioServiceImpl;
 
 /**
  *
@@ -25,6 +28,15 @@ public class ListarServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        IUsuarioService service = new UsuarioServiceImpl();
+        
+        Usuario usuario = new Usuario();
+        int e =Integer.parseInt(request.getParameter("edad"));
+        //usuario.setCodigo(Integer.parseInt(request.getParameter("idUsuario")));
+        usuario.setNombre(request.getParameter("nombre"));
+        usuario.setEdad(e);
+        usuario.setSexo(request.getParameter("sexo"));
+        response.sendRedirect("ListarUsuarioServlet");
         
     }
 

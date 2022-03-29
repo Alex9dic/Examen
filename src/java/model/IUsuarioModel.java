@@ -5,10 +5,12 @@
  */
 package model;
 
+import entity.Usuario;
+
 /**
  *
  * @author labtw04
  */
 public interface IUsuarioModel {
-    
+     public void crearRegistro(Usuario usuario);
 }
