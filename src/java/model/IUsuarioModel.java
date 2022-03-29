@@ -6,6 +6,7 @@
 package model;
 
 import entity.Usuario;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,6 @@ import entity.Usuario;
  */
 public interface IUsuarioModel {
      public void crearRegistro(Usuario usuario);
+     
+     public List<Usuario> obtenerRegistros(); 
 }

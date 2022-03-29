@@ -9,7 +9,10 @@ import db.Conexion;
 import entity.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -42,6 +45,36 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
     }
     
+      @Override
+    public List<Usuario> obtenerRegistros() {
+        List<Usuario> users = new ArrayList<Usuario>();
+        try {
+            ResultSet resultSet;
+            
+            conexion = new Conexion();
+            conexion.conectar();
+            connection = conexion.getConection();
+            String sql = "SELECT * FROM usuario";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                resultSet = ps.executeQuery();
+
+                while (resultSet.next()) {
+                    Usuario usuarios = new Usuario();
+                    usuarios.setCodigo(resultSet.getInt(1));
+                    usuarios.setNombre(resultSet.getString(2));
+                    usuarios.setEdad(resultSet.getInt(3));
+                    usuarios.setSexo(resultSet.getString(4));
+                   
+                    users.add(usuarios);
+                    System.out.println("Datos obtenidos correcatmente");
+                }
+                conexion.desconectar();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener registros " + e.getMessage());
+        }
+        return users;
+    }
     
     public static void main(String[] args) throws SQLException {
         UsuarioModelImpl user = new UsuarioModelImpl();
@@ -54,6 +87,8 @@ public class UsuarioModelImpl implements IUsuarioModel {
         
          
     }
+
+   
     
 }
 

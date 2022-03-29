@@ -4,9 +4,17 @@
         <servlet-name>ListarServlet</servlet-name>
         <servlet-class>controller.ListarServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarUsuarioServlet</servlet-name>
+        <servlet-class>controller.ListarUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarServlet</servlet-name>
         <url-pattern>/ListarServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarUsuarioServlet</servlet-name>
+        <url-pattern>/ListarUsuarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -10,11 +10,13 @@ package entity;
  * @author labtw04
  */
 public class Usuario extends Persona{
+    int codigo;
     String nombre;
     String sexo;
     int edad;
 
-    public Usuario(String nombre, String sexo, int edad) {
+    public Usuario(int codigo, String nombre, String sexo, int edad) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.sexo = sexo;
         this.edad = edad;
@@ -46,6 +48,14 @@ public class Usuario extends Persona{
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getCodigo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     
