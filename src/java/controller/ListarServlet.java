@@ -36,6 +36,7 @@ public class ListarServlet extends HttpServlet {
         usuario.setNombre(request.getParameter("nombre"));
         usuario.setEdad(e);
         usuario.setSexo(request.getParameter("sexo"));
+        service.crearRegistro(usuario);
         response.sendRedirect("ListarUsuarioServlet");
         
     }

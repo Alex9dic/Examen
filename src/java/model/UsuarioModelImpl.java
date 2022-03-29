@@ -47,7 +47,6 @@ public class UsuarioModelImpl implements IUsuarioModel {
         UsuarioModelImpl user = new UsuarioModelImpl();
         Usuario usuario = new Usuario();
         
-        
         usuario.setNombre("Jaziel");
         usuario.setEdad(20);
         usuario.setSexo("M");
